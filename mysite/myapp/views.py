@@ -27,7 +27,7 @@ def index(request):
         form_instance = forms.SuggestionForm()
     suggestions = models.SuggestionModel.objects.all()
     context = {
-        "title":"Awesome",
+        "title":"Bootleg Reddit",
         "suggestions":suggestions,
         "form_instance":form_instance,
         "comm_form":comm_form

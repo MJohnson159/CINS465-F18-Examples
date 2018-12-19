@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 <div class="grid-container">
-  <div class="grid-x grid-padding-x">
-      <div class="large-12 cell">
-        <h1>Hello World Template</h1>
+  <div class="grid-x grid-margin-x">
+      <div class="large-12 cell align-middle">
+        <h1>Mixerr - Where We Find You New Content</h1>
       </div>
       <!-- <div class="large-12 cell">
         {% if user.is_authenticated %}
@@ -14,14 +14,14 @@
         {% endif %}
       </div> -->
       {% if user.is_authenticated %}
-      <div class="large-4 cell">
+      <!-- <div class="large-3 cell">
         <form action="/" method="post">
             {% csrf_token %}
             {{ form_instance }}
             <input type="submit" class="button expanded" value="Submit">
         </form>
-      </div>
-      <div id="app-4" class="large-8 cell">
+      </div> -->
+        <div id="app-4" class="small-3 cell align-center">
           <div v-for="todo in suggestions" >
             {% verbatim %}
             <div class="card-info secondary">
@@ -30,36 +30,45 @@
                     sugg
                 </div>
               </div> -->
-              <div class="card-info-content">
-                <h3 class="lead">{{ todo.suggestion }}</h3>
-                <p>authored by {{ todo.author }} on {{ todo.created_on }}</p>
+              <!-- <div class="title"> -->
+                <!-- <h3 class="title">{{ todo.title }}</h3> -->
+              <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                  <div class="card-info-content">
+                    <div class="cell align-left">
+                      <a href="https://i.redd.it/zquyhpbh4hw11.gif"
+                        target="_blank">
+                        {{ todo.suggestion }}
+                      </a>
+                    </div>
+                <!-- <p>authored by {{ todo.author }} on {{ todo.created_on }}</p> -->
+                </div>
               </div>
-            </div>
-            <div class="grid-container">
+            <!-- <div class="grid-container">
               <div class="grid-x grid-padding-x">
                 <div v-for="comm in todo.comments" class="large-10 large-offset-2 cell">
-                  <div class="card-info secondary">
+                  <div class="card-info secondary"> -->
                     <!-- <div class="card-info-label">
                       <div class="card-info-label-text">
                           comm
                       </div>
                     </div> -->
-                    <div class="card-info-content">
+                    <!-- <div class="card-info-content">
                       <h3 class="lead">{{ comm.comment }}</h3>
                       <p>authored by {{ comm.author }} on {{ comm.created_on }}</p>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
-                <div class="large-10 large-offset-2 cell">
+                <!-- <div class="large-10 large-offset-2 cell">
                   <form v-bind:action="'/comment/'+ todo.id+'/'" method="post">
                       {% endverbatim %}
                       {% csrf_token %}
-                      <!-- <h4 class="text-center">Comment</h4> -->
+                      <h4 class="text-center">Comment</h4>
                       {{ comm_form }}
                       {% verbatim %}
                       <input type="submit" class="button expanded" value="Comment" />
                   </form>
-                </div>
+                </div> -->
               </div>
             </div>
 

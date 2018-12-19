@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class SuggestionModel(models.Model):
-    suggestion = models.CharField(max_length=240)
+    suggestion = models.URLField(max_length=240)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
+    title = "Reddit.com" # models.CharField(max_length=64)
 
     def __str__(self):
         return self.suggestion
