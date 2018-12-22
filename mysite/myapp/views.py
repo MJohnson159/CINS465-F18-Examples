@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.contrib.auth import logout
 # from django.conf import settings
 from django.contrib.auth.decorators import login_required
+import requests
+import praw
 
 # import json
 
@@ -25,6 +27,26 @@ def index(request):
                 form_instance = forms.SuggestionForm()
     else:
         form_instance = forms.SuggestionForm()
+
+
+    reddit = praw.Reddit(client_id='client_id',
+                         client_secret='client_secret',
+                         # username='username',
+                         # password='password',
+                         user_agent='user_agent')
+
+    reddit.read_only = True
+
+    subreddit = reddit.subreddit('redditdev')
+    my_post = {}
+    # for submission in subreddit.hot(limit=10):
+        # my_post += {
+        #     "title":submission.title,
+        #     "id":submission.id,
+        #     "url":submission.url
+        # }
+
+
     suggestions = models.SuggestionModel.objects.all()
     context = {
         "title":"Bootleg Reddit",
@@ -109,3 +131,33 @@ def rest_suggestion(request):
             list_of_suggestions += [add_to_list]
         return JsonResponse({"suggestions":list_of_suggestions})
     return HttpResponse("Invalid HTTP Method")
+
+# view for getting a reddit post and serving it to the main page
+# def reddit_post(request):
+#     if request.method=='GET':
+#         # for read-only instance, don't need username and password
+#         reddit = praw.Reddit(client_id='client_id',
+#                              client_secret='client_secret',
+#                              # username='username',
+#                              # password='password',
+#                              user_agent='user_agent')
+#
+#         reddit.read_only = True
+#
+#         subreddit = reddit.subreddit('redditdev')
+#         for submission in subreddit.hot(limit=10):
+#             my_post += {
+#                 "title":submission.title,
+#                 "id":submission.id,
+#                 "url":submission.url
+#             }
+#
+#         # print(subreddit.display_name)
+#         # print(subreddit.title)
+#         # print(subreddit.description)
+#
+#     return render(request, "index.html", context=my_post)
+
+def profile(request):
+    # does nothing for now
+    return redirect("/")

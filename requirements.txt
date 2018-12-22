@@ -3,3 +3,4 @@ pytz==2018.5
 pylint
 pylint_django
 coverage
+praw

@@ -25,20 +25,15 @@
           <li><a href="/">Home</a></li>
         </ul>
       </div>
-      <div class="top-bar-middle">
-        <ul class="button" button>
-          <!-- <li class="button-text"></li> -->
-            <a href="/chat/">Chat here my dude</a>
-        </ul>
-      </div>
       <div class="top-bar-right">
         <ul class="menu">
+          <a href="/chat/">Chat here my dude</a>
           {% if user.is_authenticated %}
-          <!-- <li><a href="/accounts/">{{ user.username }}</a></li> -->
+          <li><a href="/accounts/">{{ user.username }}</a></li>
           <!-- <li><a href="/suggestion/">Add Suggestion</a></li> -->
           <li><a href="/logout/">Logout</a></li>
           {% else %}
-           <!-- <li><a href="/register/">Register</a></li> -->
+          <li><a href="/register/">Register</a></li>
           <li><a href="/login/">Log In</a></li>
           {% endif %}
         </ul>
