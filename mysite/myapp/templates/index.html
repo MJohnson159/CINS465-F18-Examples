@@ -3,31 +3,28 @@
 {% block content %}
 <div class="grid-container">
   <div class="grid-x grid-margin-x">
-      <div class="large-12 cell align-middle">
-        <h1>Mixerr - Where We Find You New Content</h1>
-      </div>
-      {% if user.is_authenticated %}
-        <div id="app-4" class="small-3 cell align-center">
-          <div v-for="todo in suggestions" >
-            {% verbatim %}
-            <div class="card-info secondary">
-              <!-- <div class="grid-container"> -->
-                <!-- <div class="grid-x grid-padding-x"> -->
-                  <div class="card-info-content">
-                    <a href="https://i.redd.it/zquyhpbh4hw11.gif"
-                      target="_blank">
-                      {{ todo.suggestion }}
-                    </a>
-                  </div>
-                <!-- </div> -->
+    <div class="large-12 cell align-middle">
+      <h1>Mixerr - Where We Find You New Content</h1>
+    </div>
+      <div id="app-4" class="small-3 cell align-center">
+        <div v-for="todo in suggestions" >
+          {% verbatim %}
+          <div class="card-info secondary">
+            <!-- <div class="grid-container"> -->
+              <!-- <div class="grid-x grid-padding-x"> -->
+                <div class="card-info-content">
+                  <a href="https://i.redd.it/zquyhpbh4hw11.gif"
+                    target="_blank">
+                    {{ todo.suggestion }}
+                  </a>
+                </div>
               <!-- </div> -->
-            </div>
+            <!-- </div> -->
           </div>
+          {% endverbatim %}
         </div>
-            {% endverbatim %}
       </div>
-
-      {% endif %}
+    </div>
   </div>
 </div>
 

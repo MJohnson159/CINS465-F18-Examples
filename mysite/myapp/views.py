@@ -29,8 +29,8 @@ def index(request):
         form_instance = forms.SuggestionForm()
 
 
-    reddit = praw.Reddit(client_id='client_id',
-                         client_secret='client_secret',
+    reddit = praw.Reddit(client_id='Yad-0Db5uIUK9g',
+                         client_secret='L8fZC0qUW_Nh9H-xPamDSfeSBOE',
                          # username='username',
                          # password='password',
                          user_agent='user_agent')
@@ -38,12 +38,16 @@ def index(request):
     reddit.read_only = True
 
     subreddit = reddit.subreddit('redditdev')
-    my_post = {}
+    my_post = {
+        "title":submission.title,
+        "id":submission.id,
+        "url":submission.url
+    }
     # for submission in subreddit.hot(limit=10):
         # my_post += {
-        #     "title":submission.title,
-        #     "id":submission.id,
-        #     "url":submission.url
+            # "title":submission.title,
+            # "id":submission.id,
+            # "url":submission.url
         # }
 
 
@@ -51,8 +55,8 @@ def index(request):
     context = {
         "title":"Bootleg Reddit",
         "suggestions":suggestions,
-        "form_instance":form_instance,
-        "comm_form":comm_form
+        "form_instance":"test",
+        "comm_form":"comm_form"
         }
     return render(request, "index.html", context=context)
 
